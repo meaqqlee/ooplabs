@@ -1,3 +1,5 @@
+package tasks2.src;
+
 public class Student {
     private String name;
     private int year;

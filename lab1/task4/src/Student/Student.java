@@ -1,30 +1,36 @@
 package Student;
 
 public class Student {
-    private String name;
-    private int year;
+    private final String name;
     private final int id;
+    private int yearOfStudy;
+    private static int count = 0;
 
-    public Student(String name, int id, int year) {
-        this.name = name;
-        this.id = id;
-        this.year = year;
+    static {
+        count++;
     }
 
+    //constructor
+    public Student() {
+        this(String.valueOf(count), 1);
+    }
+    public Student(String name) {
+        this(name, 1);
+    }
+    public Student(String name, int yearOfStudy) {
+        this.name = name;
+        this.yearOfStudy = yearOfStudy;
+        this.id = count;
+    }
+
+    //methods
     public String getName() {
         return name;
     }
-
     public int getId() {
         return id;
     }
-
-    public void incrementYear() {
-        this.year++;
-    }
-
-    public String toString() {
-        return "Student " + name + " (ID: " + id + "), Grade: " + year;
+    public void increment() {
+        this.yearOfStudy++;
     }
 }
-
